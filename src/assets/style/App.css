@@ -17,6 +17,7 @@ main {
   border: 1px solid #ccc;
   min-height: 10rem;
   margin: 2rem 0;
+  padding: 1.25rem;
 }
 
 a {
@@ -43,4 +44,38 @@ li {
 .site-header h1 {
   text-align: center;
   margin: 1.25rem 0;
+}
+
+.auth-form h1 {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form input {
+  font-size: larger;
+  padding: 1rem;
+  width: 60%;
+  margin: .5rem auto;
+}
+
+.auth-buttons {
+  display: flex;
+  width: 60%;
+  margin: .5rem auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.register {
+  padding: 1rem 1.25rem;
+}
+
+.login {
+  text-decoration: underline;
 }
