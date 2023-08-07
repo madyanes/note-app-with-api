@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -9,7 +9,9 @@ const App = () => {
   return (
     <>
       <header className="site-header">
-        <h1>&lt; NoteApp &#47;&gt;</h1>
+        <Link to='/'>
+          <h1>&lt;NoteApp &#47;&gt;</h1>
+        </Link>
         <Navigation />
       </header>
 
