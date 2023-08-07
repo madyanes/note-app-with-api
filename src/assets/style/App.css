@@ -11,3 +11,36 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
+
+main {
+  width: 50vw;
+  border: 1px solid #ccc;
+  min-height: 10rem;
+  margin: 2rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  list-style-type: none;
+}
+
+li {
+  text-decoration: underline;
+}
+
+#root {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.site-header h1 {
+  text-align: center;
+  margin: 1.25rem 0;
+}
