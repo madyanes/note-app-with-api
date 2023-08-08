@@ -16,9 +16,14 @@ const App = () => {
     console.log(user)
   }, [user])
 
+  const resetUser = () => {
+    setUser(() => null)
+  }
+
   const authUserContextValue = useMemo(() => {
     return {
       user,
+      resetUser,
     }
   }, [user])
 

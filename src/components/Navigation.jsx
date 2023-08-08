@@ -1,9 +1,10 @@
 import { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { putAccessToken } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 
 const Navigation = () => {
-  const { user } = useContext(AuthUserContext)
+  const { user, resetUser } = useContext(AuthUserContext)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -12,6 +13,11 @@ const Navigation = () => {
       navigate('/login')
     }
   }, [user])
+
+  const onLogout = () => {
+    resetUser()
+    putAccessToken('')
+  }
 
   return (
     <nav className="site-navigation">
@@ -25,6 +31,7 @@ const Navigation = () => {
           <ul>
             <li><Link to='/notes'>Notes</Link></li>
             <li><Link to='/archives'>Archives</Link></li>
+            <li onClick={onLogout}>Logout</li>
           </ul>
         )
       }
