@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { getUserLogged, putAccessToken } from './utils/network-data'
 import AuthUserContext from './contexts/AuthUserContext'
@@ -11,6 +11,15 @@ import './assets/style/App.css'
 const App = () => {
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const getLeggedInUser = async () => {
+      const { data } = await getUserLogged()
+      setUser(() => data)
+    }
+
+    getLeggedInUser()
+  }, [user])
 
   const resetUser = () => {
     setUser(() => null)
