@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PropTypes from 'prop-types'
 import { login } from "../utils/network-data"
 
 const LoginPage = ({ loginSuccess }) => {
@@ -39,6 +40,10 @@ const LoginPage = ({ loginSuccess }) => {
       </form>
     </article>
   )
+}
+
+LoginPage.propTypes = {
+  loginSuccess: PropTypes.func.isRequired,
 }
 
 export default LoginPage
