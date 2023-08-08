@@ -12,7 +12,7 @@ const RegisterPage = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (user !== null) {
+    if (user === null) {
       navigate('/')
     }
   })
@@ -50,7 +50,7 @@ const RegisterPage = () => {
   return (
     <>
       {
-        user !== null ? (
+        user === null ? (
           <h1>You&apos;ve been logged in. Redirecting to homepage.</h1>
         ) : (
           <article className="auth-form">
