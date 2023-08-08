@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { register } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 
@@ -62,7 +62,9 @@ const RegisterPage = () => {
               <input type="text" placeholder="Confirm Password" value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
               <div className="auth-buttons">
                 <button className="register">Register</button>
-                <p className="login"><a href="#">Already have an account? Login here</a></p>
+                <p className="login">
+                  <Link to='/login'>Already have an account? Login here</Link>
+                </p>
               </div>
             </form>
           </article>

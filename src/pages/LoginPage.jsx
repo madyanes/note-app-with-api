@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
 import { login } from "../utils/network-data"
 import AuthUserContext from "../contexts/AuthUserContext"
@@ -50,7 +50,9 @@ const LoginPage = ({ loginSuccess }) => {
               <input type="text" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
               <div className="auth-buttons">
                 <button className="register">Login</button>
-                <p className="login"><a href="#">Don&apos;t have an account? Register here</a></p>
+                <p className="login">
+                  <Link to='/register'>Don&apos;t have an account? Register here</Link>
+                </p>
               </div>
             </form>
           </article>
