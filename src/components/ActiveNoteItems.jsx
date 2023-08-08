@@ -10,19 +10,17 @@ const ActiveNoteItems = ({ notes }) => {
           ) : (
             notes.map((note) => {
               return (
-                <>
-                  <article>
-                    <header>
-                      <h1>{note.title}</h1>
-                    </header>
-                    <div className="body">
-                      <p>{note.body}</p>
-                    </div>
-                    <footer>
-                      <p>{note.createdAt}</p>
-                    </footer>
-                  </article>
-                </>
+                <article key={note.id}>
+                  <header>
+                    <h1>{note.title}</h1>
+                  </header>
+                  <div className="body">
+                    <p>{note.body}</p>
+                  </div>
+                  <footer>
+                    <p>{note.createdAt}</p>
+                  </footer>
+                </article>
               )
             })
           )
@@ -35,7 +33,7 @@ const ActiveNoteItems = ({ notes }) => {
 }
 
 ActiveNoteItems.propTypes = {
-  notes: PropTypes.object.isRequired,
+  notes: PropTypes.array,
 }
 
 export default ActiveNoteItems
