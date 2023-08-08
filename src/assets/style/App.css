@@ -13,10 +13,10 @@ body {
 }
 
 main {
-  width: 50vw;
+  width: 70vw;
   border: 1px solid #ccc;
   min-height: 10rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
   padding: 1.25rem;
 }
 
@@ -37,13 +37,18 @@ li {
 }
 
 #root {
-  width: 50vw;
+  width: 100vw;
   margin: 0 auto;
 }
 
 .site-header h1 {
   text-align: center;
   margin: 1.25rem 0;
+}
+
+.auth-form {
+  width: 50vw;
+  margin: 0 auto;
 }
 
 .auth-form h1 {
