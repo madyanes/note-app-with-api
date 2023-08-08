@@ -1,11 +1,9 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { login } from "../utils/network-data"
 
-const LoginPage = () => {
+const LoginPage = ({ loginSuccess }) => {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
-  const navigate = useNavigate()
 
   const onSubmitHandler = async (event) => {
     event.preventDefault()
@@ -16,8 +14,7 @@ const LoginPage = () => {
     })
 
     if (!error) {
-      navigate('/')
-      localStorage.setItem('accessToken', data.accessToken)
+      loginSuccess(data)
     }
   }
 
