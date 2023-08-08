@@ -29,7 +29,7 @@ const Navigation = () => {
           </ul>
         ) : (
           <ul>
-            <li><Link to='/notes'>Notes</Link></li>
+            <li><Link to='/'>Notes</Link></li>
             <li><Link to='/archives'>Archives</Link></li>
             <li onClick={onLogout}>Logout</li>
           </ul>
