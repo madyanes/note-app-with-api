@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { getUserLogged, putAccessToken } from './utils/network-data'
 import AuthUserContext from './contexts/AuthUserContext'
