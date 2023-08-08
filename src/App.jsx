@@ -12,10 +12,6 @@ const App = () => {
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    console.log(user)
-  }, [user])
-
   const resetUser = () => {
     setUser(() => null)
   }

@@ -1,18 +1,10 @@
-import { useContext, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { putAccessToken } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 
 const Navigation = () => {
   const { user, resetUser } = useContext(AuthUserContext)
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    console.log(user)
-    if (user === null) {
-      navigate('/login')
-    }
-  }, [user])
 
   const onLogout = () => {
     resetUser()

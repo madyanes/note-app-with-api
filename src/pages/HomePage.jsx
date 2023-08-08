@@ -8,7 +8,6 @@ const HomePage = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    console.log('homepage', user)
     if (user === null) {
       navigate('/login')
     }
