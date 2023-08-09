@@ -23,7 +23,7 @@ const ActiveNotes = () => {
     }
   }, [user])
 
-  const activeNoteListMemo = useMemo(() => {
+  const activeNoteListMemo = useMemo(() => {  // agar tidak mengirim request ulang di saat komponen mengalami re-render 
     if (notes !== null) {
       return <ActiveNoteList notes={notes} />
     }
