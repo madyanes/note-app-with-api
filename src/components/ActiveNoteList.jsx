@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import ActiveNoteItem from './ActiveNoteItem'
 
 const ActiveNoteList = ({ notes }) => {
   return (
@@ -11,17 +12,7 @@ const ActiveNoteList = ({ notes }) => {
             notes.map((note) => {
               console.log(note)
               return (
-                <article key={note.id}>
-                  <header>
-                    <h1>{note.title}</h1>
-                  </header>
-                  <div className="body">
-                    <p>{note.body}</p>
-                  </div>
-                  <footer>
-                    <p>{note.createdAt}</p>
-                  </footer>
-                </article>
+                <ActiveNoteItem key={note.id} note={note} />
               )
             })
           )

@@ -17,7 +17,9 @@ const HomePage = () => {
         ) : (
           <section className="note-list">
             <h1>Active Notes</h1>
-            <ActiveNotes />
+            <div className="note-item-wrapper">
+              <ActiveNotes />
+            </div>
           </section>
         )
       }
