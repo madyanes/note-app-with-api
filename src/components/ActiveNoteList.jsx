@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const ActiveNoteItems = ({ notes }) => {
+const ActiveNoteList = ({ notes }) => {
   return (
     <>
       {
@@ -9,6 +9,7 @@ const ActiveNoteItems = ({ notes }) => {
             <p>No active notes.</p>
           ) : (
             notes.map((note) => {
+              console.log(note)
               return (
                 <article key={note.id}>
                   <header>
@@ -32,8 +33,8 @@ const ActiveNoteItems = ({ notes }) => {
   )
 }
 
-ActiveNoteItems.propTypes = {
+ActiveNoteList.propTypes = {
   notes: PropTypes.array,
 }
 
-export default ActiveNoteItems
+export default ActiveNoteList

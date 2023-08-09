@@ -1,31 +1,39 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { getActiveNotes } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
-import ActiveNoteItems from './ActiveNoteItems'
+import ActiveNoteList from './ActiveNoteList'
 
 const ActiveNotes = () => {
   const [notes, setNotes] = useState(null)
   const { user } = useContext(AuthUserContext)
 
   useEffect(() => {
-    const fetchActiveNotes = async () => {
-      const { error, data } = await getActiveNotes()
-
-      if (!error) {
-        setNotes(() => data)
-      }
-    }
-
     if (user !== null) {
+      const fetchActiveNotes = async () => {
+        const { error, data } = await getActiveNotes()
+
+        if (!error) {
+          setNotes(() => data)
+        }
+
+        console.log('ActiveNotes')
+      }
+
       fetchActiveNotes()
     }
   }, [user])
+
+  const activeNoteListMemo = useMemo(() => {
+    if (notes !== null) {
+      return <ActiveNoteList notes={notes} />
+    }
+  }, [notes])
 
   return (
     user === null ? (
       <h1>You don&apos;t have access.</h1>
     ) : (
-      <ActiveNoteItems notes={notes} />
+      activeNoteListMemo
     )
   )
 }

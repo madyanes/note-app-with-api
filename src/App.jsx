@@ -14,14 +14,21 @@ const App = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
+    if (user === null) {
+      navigate('/login')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
+
+  useEffect(() => {
     const getLeggedInUser = async () => {
       const { data } = await getUserLogged()
       setUser(() => data)
       setInitializing(() => false)
     }
-
+    console.log('App')
     getLeggedInUser()
-  }, [user])
+  }, [])
 
   const resetUser = () => {
     setUser(() => null)
@@ -38,7 +45,6 @@ const App = () => {
     putAccessToken(accessToken)
     const { data } = await getUserLogged()
     setUser(() => data)
-    navigate('/')
   }
 
   if (initializing) {
