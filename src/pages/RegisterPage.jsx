@@ -15,7 +15,8 @@ const RegisterPage = () => {
     if (user === null) {
       navigate('/')
     }
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
 
   const onRegisterHandler = async (event) => {
     event.preventDefault()
