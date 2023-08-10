@@ -12,10 +12,9 @@ const LoginPage = ({ loginSuccess }) => {
 
   useEffect(() => {
     if (user !== null) {
-      console.log('redirect')
       navigate('/')
     }
-  }, [user])
+  }, [user, navigate])
 
   const onSubmitHandler = async (event) => {
     event.preventDefault()
