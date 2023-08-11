@@ -6,7 +6,6 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Navigation from './components/Navigation'
-import ArchivedNotes from './components/ArchivedNotes'
 import './assets/style/App.css'
 
 const App = () => {
@@ -63,7 +62,7 @@ const App = () => {
         <main>
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/archives' element={<ArchivedNotes />} />
+            <Route path='/archives' element={<HomePage archived />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage loginSuccess={onLoginSuccess} />} />
           </Routes>
