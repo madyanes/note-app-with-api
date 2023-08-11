@@ -11,7 +11,7 @@ const HomePage = () => {
     if (user === null) {
       navigate('/login')
     }
-  }, [])
+  }, [user, navigate])
 
   return (
     <>
