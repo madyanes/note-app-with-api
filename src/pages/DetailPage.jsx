@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { getNote } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import NotFound from './NotFound'
+import ActiveNoteItem from '../components/ActiveNoteItem'
 
 const DetailPage = () => {
   const { id } = useParams()
@@ -28,17 +29,15 @@ const DetailPage = () => {
     user === null ? (
       <h1>Not Found</h1>
     ) : (
-      <>
-        <section className="note-detail">
-          {
-            note ? (
-              <h1>{note.title}</h1>
-            ) : (
-              <p>Loading...</p>
-            )
-          }
-        </section>
-      </>
+      <div className="note-detail">
+        {
+          note ? (
+            <ActiveNoteItem note={note} />
+          ) : (
+            <p>Loading...</p>
+          )
+        }
+      </div>
     )
   )
 }

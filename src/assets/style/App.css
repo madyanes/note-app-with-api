@@ -109,3 +109,7 @@ li {
 .note-item footer {
   font-size: small;
 }
+
+.note-detail > .note-item {
+  border: none;
+}
