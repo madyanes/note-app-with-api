@@ -10,7 +10,6 @@ const ActiveNoteList = ({ notes }) => {
             <p>No active notes.</p>
           ) : (
             notes.map((note) => {
-              console.log(note)
               return (
                 <ActiveNoteItem key={note.id} note={note} />
               )

@@ -27,7 +27,6 @@ const App = () => {
       setUser(() => data)
       setInitializing(() => false)
     }
-    console.log('App')
     getLeggedInUser()
   }, [])
 

@@ -15,8 +15,6 @@ const ActiveNotes = () => {
         if (!error) {
           setNotes(() => data)
         }
-
-        console.log('ActiveNotes')
       }
 
       fetchActiveNotes()
