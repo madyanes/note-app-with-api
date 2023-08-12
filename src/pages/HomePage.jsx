@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
 import ActiveNotes from "../components/ActiveNotes"
 import ArchivedNotes from "../components/ArchivedNotes"
+import SearchBar from "../components/SearchBar"
 import AuthUserContext from "../contexts/AuthUserContext"
 
 const HomePage = ({ archived }) => {
@@ -17,6 +18,7 @@ const HomePage = ({ archived }) => {
 
   return (
     <>
+      <SearchBar />
       {
         user === null ? (
           <p>Loading...</p>
