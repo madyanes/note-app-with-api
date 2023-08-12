@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import showFormattedDate from '../utils/date-conversion'
 
 const ActiveNoteItem = ({ note }) => {
   return (
@@ -10,7 +11,7 @@ const ActiveNoteItem = ({ note }) => {
         </Link>
       </header>
       <footer>
-        <p>{note.createdAt}</p>
+        <p>{showFormattedDate(note.createdAt)}</p>
       </footer>
       <div className="body">
         <p>{note.body}</p>
