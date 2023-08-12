@@ -6,7 +6,7 @@ import ActionButtons from './ActionButtons'
 const ActiveNoteItem = ({ note }) => {
   return (
     <article className='note-item'>
-      <ActionButtons />
+      <ActionButtons id={note.id} />
       <header>
         <Link to={`/notes/${note.id}`}>
           <h1>{note.title}</h1>
