@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 const SearchBar = () => {
-  const [search, setSearch] = useState('')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [search, setSearch] = useState(() => searchParams.get('search') || '')
+
+  useEffect(() => {
+    console.log(search)
+  }, [search])
 
   const onSearchChangeHandler = (event) => {
-    setSearch(() => event.target.value)
+    const value = event.target.value
+    setSearch(() => value)
+    setSearchParams(() => ({ search: value }))
   }
 
   return (

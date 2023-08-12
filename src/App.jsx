@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import { getUserLogged, putAccessToken } from './utils/network-data'
 import AuthUserContext from './contexts/AuthUserContext'
 import RegisterPage from './pages/RegisterPage'
@@ -12,16 +12,9 @@ import './assets/style/App.css'
 const App = () => {
   const [user, setUser] = useState(null)
   const [initializing, setInitializing] = useState(true)
-  const navigate = useNavigate()
 
   useEffect(() => {
-    if (user === null) {
-      navigate('/login')
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user])
-
-  useEffect(() => {
+    console.log('ok')
     const getLeggedInUser = async () => {
       const { data } = await getUserLogged()
       setUser(() => data)
