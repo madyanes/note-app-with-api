@@ -14,7 +14,6 @@ const App = () => {
   const [initializing, setInitializing] = useState(true)
 
   useEffect(() => {
-    console.log('ok')
     const getLeggedInUser = async () => {
       const { data } = await getUserLogged()
       setUser(() => data)
