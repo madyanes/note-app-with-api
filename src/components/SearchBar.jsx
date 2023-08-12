@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import SearchContext from '../contexts/SearchContext'
 
 const SearchBar = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const [search, setSearch] = useState(() => searchParams.get('search') || '')
-
-  useEffect(() => {
-    console.log(search)
-  }, [search])
 
   const onSearchChangeHandler = (event) => {
     const value = event.target.value
@@ -16,9 +13,11 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="search-bar">
-      <input type="text" placeholder="Search note..." value={search} onChange={onSearchChangeHandler} />
-    </div>
+    <SearchContext.Provider value={search}>
+      <div className="search-bar">
+        <input type="text" placeholder="Search note..." value={search} onChange={onSearchChangeHandler} />
+      </div>
+    </SearchContext.Provider>
   )
 }
 
