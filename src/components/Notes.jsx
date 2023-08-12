@@ -5,14 +5,14 @@ import AuthUserContext from '../contexts/AuthUserContext'
 import SearchContext from '../contexts/SearchContext'
 import ActiveNoteList from './ActiveNoteList'
 
-const ActiveNotes = ({ archived }) => {
+const Notes = ({ archived }) => {
   const [notes, setNotes] = useState(null)
   const { user } = useContext(AuthUserContext)
   const { keyword } = useContext(SearchContext)
 
   useEffect(() => {
     if (user !== null) {
-      const fetchActiveNotes = async () => {
+      const fetchNotes = async () => {
         const { error, data } = (archived ? await getArchivedNotes() : await getActiveNotes())
 
         if (!error) {
@@ -20,11 +20,11 @@ const ActiveNotes = ({ archived }) => {
         }
       }
 
-      fetchActiveNotes()
+      fetchNotes()
     }
   }, [user, archived])
 
-  const activeNoteListMemo = useMemo(() => {  // agar tidak mengirim request ulang di saat komponen mengalami re-render 
+  const NoteListMemo = useMemo(() => {  // agar tidak mengirim request ulang di saat komponen mengalami re-render 
     if (notes !== null) {
       return <ActiveNoteList notes={notes.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()))} />
     }
@@ -34,13 +34,13 @@ const ActiveNotes = ({ archived }) => {
     user === null ? (
       <h1>You don&apos;t have access.</h1>
     ) : (
-      activeNoteListMemo
+      NoteListMemo
     )
   )
 }
 
-ActiveNotes.propTypes = {
+Notes.propTypes = {
   archived: PropTypes.bool,
 }
 
-export default ActiveNotes
+export default Notes

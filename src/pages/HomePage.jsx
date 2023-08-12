@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import PropTypes from "prop-types"
-import ActiveNotes from "../components/ActiveNotes"
+import Notes from "../components/Notes"
 import SearchBar from "../components/SearchBar"
 import AuthUserContext from "../contexts/AuthUserContext"
 import SearchContext from "../contexts/SearchContext"
@@ -41,7 +41,7 @@ const HomePage = ({ archived }) => {
             <section className="note-list">
               <h1>{archived ? 'Archived Notes' : 'Active Notes'}</h1>
               <div className="note-item-wrapper">
-                {archived ? <ActiveNotes archived /> : <ActiveNotes />}
+                {archived ? <Notes archived /> : <Notes />}
               </div>
             </section>
           )
