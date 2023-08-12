@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import { getNote } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import NotFound from './NotFound'
@@ -40,10 +39,6 @@ const DetailPage = () => {
       </div>
     )
   )
-}
-
-DetailPage.propTypes = {
-  note: PropTypes.object.isRequired,
 }
 
 export default DetailPage
