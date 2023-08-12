@@ -1,10 +1,11 @@
 import { useContext, useEffect, useMemo, useState } from 'react'
-import { getActiveNotes } from '../utils/network-data'
+import PropTypes from 'prop-types'
+import { getActiveNotes, getArchivedNotes } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import SearchContext from '../contexts/SearchContext'
 import ActiveNoteList from './ActiveNoteList'
 
-const ActiveNotes = () => {
+const ActiveNotes = ({ archived }) => {
   const [notes, setNotes] = useState(null)
   const { user } = useContext(AuthUserContext)
   const { keyword } = useContext(SearchContext)
@@ -12,7 +13,7 @@ const ActiveNotes = () => {
   useEffect(() => {
     if (user !== null) {
       const fetchActiveNotes = async () => {
-        const { error, data } = await getActiveNotes()
+        const { error, data } = (archived ? await getArchivedNotes() : await getActiveNotes())
 
         if (!error) {
           setNotes(() => data)
@@ -21,7 +22,7 @@ const ActiveNotes = () => {
 
       fetchActiveNotes()
     }
-  }, [user])
+  }, [user, archived])
 
   const activeNoteListMemo = useMemo(() => {  // agar tidak mengirim request ulang di saat komponen mengalami re-render 
     if (notes !== null) {
@@ -36,6 +37,10 @@ const ActiveNotes = () => {
       activeNoteListMemo
     )
   )
+}
+
+ActiveNotes.propTypes = {
+  archived: PropTypes.bool,
 }
 
 export default ActiveNotes
