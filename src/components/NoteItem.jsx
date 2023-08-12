@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import showFormattedDate from '../utils/date-conversion'
 import ActionButtons from './ActionButtons'
 
-const ActiveNoteItem = ({ note }) => {
+const NoteItem = ({ note }) => {
   return (
     <article className='note-item'>
       <ActionButtons id={note.id} />
@@ -22,8 +22,8 @@ const ActiveNoteItem = ({ note }) => {
   )
 }
 
-ActiveNoteItem.propTypes = {
+NoteItem.propTypes = {
   note: PropTypes.object.isRequired,
 }
 
-export default ActiveNoteItem
+export default NoteItem

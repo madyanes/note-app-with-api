@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getNote } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import NotFound from './NotFound'
-import ActiveNoteItem from '../components/ActiveNoteItem'
+import NoteItem from '../components/NoteItem'
 
 const DetailPage = () => {
   const { id } = useParams()
@@ -31,7 +31,7 @@ const DetailPage = () => {
       <div className="note-detail">
         {
           note ? (
-            <ActiveNoteItem note={note} />
+            <NoteItem note={note} />
           ) : (
             <p>Loading...</p>
           )
