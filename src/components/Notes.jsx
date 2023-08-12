@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { getActiveNotes, getArchivedNotes } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import SearchContext from '../contexts/SearchContext'
-import ActiveNoteList from './ActiveNoteList'
+import NoteList from './NoteList'
 
 const Notes = ({ archived }) => {
   const [notes, setNotes] = useState(null)
@@ -26,7 +26,7 @@ const Notes = ({ archived }) => {
 
   const NoteListMemo = useMemo(() => {  // agar tidak mengirim request ulang di saat komponen mengalami re-render 
     if (notes !== null) {
-      return <ActiveNoteList notes={notes.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()))} />
+      return <NoteList notes={notes.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()))} />
     }
   }, [notes, keyword])
 

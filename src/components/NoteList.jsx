@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import ActiveNoteItem from './ActiveNoteItem'
 
-const ActiveNoteList = ({ notes }) => {
+const NoteList = ({ notes }) => {
   return (
     <>
       {
@@ -23,8 +23,8 @@ const ActiveNoteList = ({ notes }) => {
   )
 }
 
-ActiveNoteList.propTypes = {
+NoteList.propTypes = {
   notes: PropTypes.array,
 }
 
-export default ActiveNoteList
+export default NoteList
