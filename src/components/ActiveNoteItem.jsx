@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const ActiveNoteItem = ({ note }) => {
   return (
     <article className='note-item'>
       <header>
-        <h1>{note.title}</h1>
+        <Link to={`/notes/${note.id}`}>
+          <h1>{note.title}</h1>
+        </Link>
       </header>
       <footer>
         <p>{note.createdAt}</p>
