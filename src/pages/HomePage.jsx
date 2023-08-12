@@ -29,7 +29,7 @@ const HomePage = ({ archived }) => {
       keyword,
       onSearchChangeHandler
     }
-  }, [keyword])
+  }, [keyword, setSearchParams])  // masih belum paham kenapa eslint merekomendasikan supaya menjadikan setSearchParams sebagai dependensi
 
   return (
     <>
