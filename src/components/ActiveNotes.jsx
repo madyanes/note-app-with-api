@@ -19,7 +19,7 @@ const ActiveNotes = () => {
 
       fetchActiveNotes()
     }
-  }, [user])
+  }, [user, notes])
 
   const activeNoteListMemo = useMemo(() => {  // agar tidak mengirim request ulang di saat komponen mengalami re-render 
     if (notes !== null) {
