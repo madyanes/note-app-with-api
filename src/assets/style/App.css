@@ -112,3 +112,9 @@ li {
 .note-detail > .note-item {
   border: none;
 }
+
+.action-buttons {
+  display: flex;
+  gap: 0.313rem;
+  margin-bottom: 0.625rem;
+}

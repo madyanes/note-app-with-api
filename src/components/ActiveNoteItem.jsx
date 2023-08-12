@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import showFormattedDate from '../utils/date-conversion'
+import ActionButtons from './ActionButtons'
 
 const ActiveNoteItem = ({ note }) => {
   return (
     <article className='note-item'>
+      <ActionButtons />
       <header>
         <Link to={`/notes/${note.id}`}>
           <h1>{note.title}</h1>
