@@ -15,7 +15,6 @@ body {
 main {
   width: 70vw;
   min-width: 900px;
-  border: 1px solid #ccc;
   min-height: 10rem;
   margin: 2rem auto;
   padding: 1.25rem;
