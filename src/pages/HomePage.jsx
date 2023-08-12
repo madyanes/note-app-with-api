@@ -39,21 +39,12 @@ const HomePage = ({ archived }) => {
           user === null ? (
             <p>Loading...</p>
           ) : (
-            !archived ? (
-              <section className="note-list">
-                <h1>Active Notes</h1>
-                <div className="note-item-wrapper">
-                  <ActiveNotes />
-                </div>
-              </section>
-            ) : (
-              <section className="note-list">
-                <h1>Archived Notes</h1>
-                <div className="note-item-wrapper">
-                  <ArchivedNotes />
-                </div>
-              </section>
-            )
+            <section className="note-list">
+              <h1>{archived ? 'Archived Notes' : 'Active Notes'}</h1>
+              <div className="note-item-wrapper">
+                {archived ? <ArchivedNotes /> : <ActiveNotes />}
+              </div>
+            </section>
           )
         }
       </SearchContext.Provider>

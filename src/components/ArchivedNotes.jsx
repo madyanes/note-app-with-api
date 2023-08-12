@@ -4,7 +4,6 @@ import { getArchivedNotes } from '../utils/network-data'
 import SearchContext from '../contexts/SearchContext'
 import ActiveNoteList from './ActiveNoteList'
 
-
 const ArchivedNotes = () => {
   const [archivedNotes, setArchivedNotes] = useState(null)
   const { user } = useContext(AuthUserContext)
