@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { deleteNote, archiveNote, unarchiveNote } from "../utils/network-data"
+import { deleteNote } from "../utils/network-data"
+import ArchiveContext from '../contexts/ArchiveContext'
 
 const ActionButtons = ({ note }) => {
   const navigate = useNavigate()
+  const archiveNote = useContext(ArchiveContext)
 
   const onDeleteHandler = async () => {
     const { error } = await deleteNote(note.id)
@@ -13,14 +16,14 @@ const ActionButtons = ({ note }) => {
     }
   }
 
-  const onArchiveHandler = async () => {
-    note.archived ? await unarchiveNote(note.id) : await archiveNote(note.id)
+  const onArchiveNoteHandler = async () => {
+    await archiveNote(note)
   }
 
   return (
     <div className="action-buttons">
       <button onClick={onDeleteHandler}>Delete</button>
-      <button onClick={onArchiveHandler}>{note.archived ? 'Unarchive' : 'Archive'}</button>
+      <button onClick={onArchiveNoteHandler}>{note.archived ? 'Unarchive' : 'Archive'}</button>
     </div>
   )
 }

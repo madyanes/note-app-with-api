@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { getUserLogged, putAccessToken } from './utils/network-data'
+import { getUserLogged, putAccessToken, archiveNote, unarchiveNote } from './utils/network-data'
 import AuthUserContext from './contexts/AuthUserContext'
+import ArchiveContext from './contexts/ArchiveContext'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -39,27 +40,37 @@ const App = () => {
     setUser(() => data)
   }
 
+  const onArchiveHandler = async ({ id, archived }) => {
+    if (archived) {
+      await unarchiveNote(id)
+    } else {
+      await archiveNote(id)
+    }
+  }
+
   if (initializing) {
     return null
   } else {
     return (
       <AuthUserContext.Provider value={authUserContextValue}>
-        <header className="site-header">
-          <Link to='/'>
-            <h1>&lt;NoteApp &#47;&gt;</h1>
-          </Link>
-          <Navigation />
-        </header>
+        <ArchiveContext.Provider value={onArchiveHandler}>
+          <header className="site-header">
+            <Link to='/'>
+              <h1>&lt;NoteApp &#47;&gt;</h1>
+            </Link>
+            <Navigation />
+          </header>
 
-        <main>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/archives' element={<HomePage archived />} />
-            <Route path='/notes/:id' element={<DetailPage />} />
-            <Route path='/register' element={<RegisterPage />} />
-            <Route path='/login' element={<LoginPage loginSuccess={onLoginSuccess} />} />
-          </Routes>
-        </main>
+          <main>
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/archives' element={<HomePage archived />} />
+              <Route path='/notes/:id' element={<DetailPage />} />
+              <Route path='/register' element={<RegisterPage />} />
+              <Route path='/login' element={<LoginPage loginSuccess={onLoginSuccess} />} />
+            </Routes>
+          </main>
+        </ArchiveContext.Provider>
       </AuthUserContext.Provider>
     )
   }
