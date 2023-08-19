@@ -18,9 +18,15 @@ const Navigation = () => {
     <nav className="site-navigation">
       {
         user === null ? (
-          <ul>
-            <li><Link to='/register'>{getTextLocale('Register', 'Daftar')}</Link></li>
-            <li><Link to='/login'>{getTextLocale('Login', 'Masuk')}</Link></li>
+          <ul className='site-navigation-list'>
+            <div>
+              <li><Link to='/register'>{getTextLocale('Register', 'Daftar')}</Link></li>
+              <li><Link to='/login'>{getTextLocale('Login', 'Masuk')}</Link></li>
+            </div>
+            <div>
+              <li><SwitchLocale /></li>
+              <li><SwitchTheme /></li>
+            </div>
           </ul>
         ) : (
           <ul className='site-navigation-list'>
