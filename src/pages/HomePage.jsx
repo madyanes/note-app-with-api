@@ -4,10 +4,12 @@ import PropTypes from "prop-types"
 import Notes from "../components/Notes"
 import SearchBar from "../components/SearchBar"
 import AuthUserContext from "../contexts/AuthUserContext"
+import LocaleContext from "../contexts/LocaleContext"
 import SearchContext from "../contexts/SearchContext"
 
 const HomePage = ({ archived }) => {
   const { user } = useContext(AuthUserContext)
+  const { getTextLocale } = useContext(LocaleContext)
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [keyword, setKeyword] = useState(() => searchParams.get('search') || '')
@@ -36,10 +38,10 @@ const HomePage = ({ archived }) => {
         <SearchBar />
         {
           user === null ? (
-            <p>Loading...</p>
+            <p>{getTextLocale('Loading...', 'Memuat...')}</p>
           ) : (
             <section className="note-list">
-              <h1>{archived ? 'Archived Notes' : 'Active Notes'}</h1>
+              <h1>{archived ? getTextLocale('Archived Notes', 'Catatan Terarsip') : getTextLocale('Active Notes', 'Catatan Aktif')}</h1>
               <div className="note-item-wrapper">
                 {archived ? <Notes archived /> : <Notes />}
               </div>

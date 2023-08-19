@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getNote } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
+import LocaleContext from '../contexts/LocaleContext'
 import NotFound from './NotFound'
 import NoteItem from '../components/NoteItem'
 
@@ -9,6 +10,7 @@ const DetailPage = () => {
   const { id } = useParams()
   const [note, setNote] = useState(null)
   const { user } = useContext(AuthUserContext)
+  const { getTextLocale } = useContext(LocaleContext)
 
   useEffect(() => {
     const fetchNote = async () => {
@@ -26,14 +28,14 @@ const DetailPage = () => {
 
   return (
     user === null ? (
-      <h1>Not Found</h1>
+      <h1>{getTextLocale('Not Found', 'Tidak Ditemukan')}</h1>
     ) : (
       <div className="note-detail">
         {
           note ? (
             <NoteItem note={note} />
           ) : (
-            <p>Loading...</p>
+            <p>{getTextLocale('Loading...', 'Memuat...')}</p>
           )
         }
       </div>
