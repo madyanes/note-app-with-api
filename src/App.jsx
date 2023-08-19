@@ -12,7 +12,7 @@ import DetailPage from './pages/DetailPage'
 import './assets/style/App.css'
 
 const App = () => {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
   const [user, setUser] = useState(null)
   const [initializing, setInitializing] = useState(true)
   const navigate = useNavigate()
@@ -42,7 +42,11 @@ const App = () => {
   }, [user])
 
   const switchTheme = () => {
-    setTheme((prevTheme) => prevTheme === 'light' ? 'dark' : 'light')
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light'
+      localStorage.setItem('theme', newTheme)
+      return newTheme
+    })
   }
 
   const onLoginSuccess = async ({ accessToken }) => {
