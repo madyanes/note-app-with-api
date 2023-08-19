@@ -2,11 +2,13 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { putAccessToken } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
+import LocaleContext from '../contexts/LocaleContext'
 import SwitchTheme from './SwitchTheme'
 import SwitchLocale from './SwitchLocale'
 
 const Navigation = () => {
   const { user, resetUser } = useContext(AuthUserContext)
+  const { getTextLocale } = useContext(LocaleContext)
 
   const onLogout = () => {
     resetUser()
@@ -22,11 +24,11 @@ const Navigation = () => {
           </ul>
         ) : (
           <ul>
-            <li><Link to='/'>Notes</Link></li>
-            <li><Link to='/archives'>Archives</Link></li>
+            <li><Link to='/'>{getTextLocale('Notes', 'Catatan')}</Link></li>
+            <li><Link to='/archives'>{getTextLocale('Archives', 'Arsip')}</Link></li>
             <li><SwitchLocale /></li>
             <li><SwitchTheme /></li>
-            <li onClick={onLogout}>Logout</li>
+            <li onClick={onLogout}>{getTextLocale('Logout', 'Keluar')}</li>
           </ul>
         )
       }

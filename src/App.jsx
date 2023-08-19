@@ -55,6 +55,10 @@ const App = () => {
     })
   }
 
+  const getTextLocale = (en, id) => {
+    return locale === 'en' ? en : id
+  }
+
   const switchTheme = () => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light'
@@ -84,7 +88,7 @@ const App = () => {
     return (
       <AuthUserContext.Provider value={authUserContextValue}>
         <ArchiveContext.Provider value={onArchiveHandler}>
-          <LocaleContext.Provider value={switchLocale}>
+          <LocaleContext.Provider value={{ getTextLocale, switchLocale }}>
             <ThemeContext.Provider value={{ theme, switchTheme }}>
               <header className="site-header">
                 <Link to='/'>
