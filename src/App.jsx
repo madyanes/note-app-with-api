@@ -26,6 +26,10 @@ const App = () => {
     getLeggedInUser()
   }, [])
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
   const resetUser = () => {
     setUser(() => null)
   }
