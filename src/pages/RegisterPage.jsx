@@ -23,6 +23,8 @@ const RegisterPage = () => {
   const onRegisterHandler = async (event) => {
     event.preventDefault()
 
+    if (userConfirmPassword !== userPassword) return alert(`Passwords don't match!`)
+
     const { error } = await register({
       name: userName,
       email: userEmail,
@@ -62,7 +64,7 @@ const RegisterPage = () => {
               <input type="text" placeholder="Name" value={userName} onChange={onUserNameChangeHandler} />
               <input type="text" placeholder="Email" value={userEmail} onChange={onUserEmailChangeHandler} />
               <input type="password" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
-              <input type="password" placeholder="Confirm Password" value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
+              <input type="password" placeholder="Confirm Password" id='password-confirmation' value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
               <div className="auth-buttons">
                 <button className="register">{getTextLocale('Register', 'Daftar')}</button>
                 <p className="login">
