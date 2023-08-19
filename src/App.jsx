@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { getUserLogged, putAccessToken, archiveNote, unarchiveNote } from './utils/network-data'
 import ThemeContext from './contexts/ThemeContext'
+import LocaleContext from './contexts/LocaleContext'
 import AuthUserContext from './contexts/AuthUserContext'
 import ArchiveContext from './contexts/ArchiveContext'
 import RegisterPage from './pages/RegisterPage'
@@ -13,6 +14,7 @@ import './assets/style/App.css'
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const [locale, setLocale] = useState('en')
   const [user, setUser] = useState(null)
   const [initializing, setInitializing] = useState(true)
   const navigate = useNavigate()
@@ -30,6 +32,10 @@ const App = () => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    document.documentElement.setAttribute('lang', locale)
+  }, [locale])
+
   const resetUser = () => {
     setUser(() => null)
   }
@@ -40,6 +46,10 @@ const App = () => {
       resetUser,
     }
   }, [user])
+
+  const switchLocale = () => {
+    setLocale((prevLocale) => prevLocale === 'en' ? 'id' : 'en')
+  }
 
   const switchTheme = () => {
     setTheme((prevTheme) => {
@@ -70,24 +80,26 @@ const App = () => {
     return (
       <AuthUserContext.Provider value={authUserContextValue}>
         <ArchiveContext.Provider value={onArchiveHandler}>
-          <ThemeContext.Provider value={{ theme, switchTheme }}>
-            <header className="site-header">
-              <Link to='/'>
-                <h1>&lt;NoteApp &#47;&gt;</h1>
-              </Link>
-              <Navigation />
-            </header>
+          <LocaleContext.Provider value={switchLocale}>
+            <ThemeContext.Provider value={{ theme, switchTheme }}>
+              <header className="site-header">
+                <Link to='/'>
+                  <h1>&lt;NoteApp &#47;&gt;</h1>
+                </Link>
+                <Navigation />
+              </header>
 
-            <main>
-              <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='/archives' element={<HomePage archived />} />
-                <Route path='/notes/:id' element={<DetailPage />} />
-                <Route path='/register' element={<RegisterPage />} />
-                <Route path='/login' element={<LoginPage loginSuccess={onLoginSuccess} />} />
-              </Routes>
-            </main>
-          </ThemeContext.Provider>
+              <main>
+                <Routes>
+                  <Route path='/' element={<HomePage />} />
+                  <Route path='/archives' element={<HomePage archived />} />
+                  <Route path='/notes/:id' element={<DetailPage />} />
+                  <Route path='/register' element={<RegisterPage />} />
+                  <Route path='/login' element={<LoginPage loginSuccess={onLoginSuccess} />} />
+                </Routes>
+              </main>
+            </ThemeContext.Provider>
+          </LocaleContext.Provider>
         </ArchiveContext.Provider>
       </AuthUserContext.Provider>
     )
