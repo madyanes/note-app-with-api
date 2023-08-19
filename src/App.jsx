@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { getUserLogged, putAccessToken, archiveNote, unarchiveNote } from './utils/network-data'
 import AuthUserContext from './contexts/AuthUserContext'
 import ArchiveContext from './contexts/ArchiveContext'
@@ -13,6 +13,7 @@ import './assets/style/App.css'
 const App = () => {
   const [user, setUser] = useState(null)
   const [initializing, setInitializing] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getLeggedInUser = async () => {
@@ -46,6 +47,7 @@ const App = () => {
     } else {
       await archiveNote(id)
     }
+    navigate('/')
   }
 
   if (initializing) {
