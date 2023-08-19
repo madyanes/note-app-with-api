@@ -14,7 +14,7 @@ import './assets/style/App.css'
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
-  const [locale, setLocale] = useState('en')
+  const [locale, setLocale] = useState(localStorage.getItem('locale') || 'en')
   const [user, setUser] = useState(null)
   const [initializing, setInitializing] = useState(true)
   const navigate = useNavigate()
@@ -48,7 +48,11 @@ const App = () => {
   }, [user])
 
   const switchLocale = () => {
-    setLocale((prevLocale) => prevLocale === 'en' ? 'id' : 'en')
+    setLocale((prevLocale) => {
+      const newLocale = prevLocale === 'en' ? 'id' : 'en'
+      localStorage.setItem('locale', newLocale)
+      return newLocale
+    })
   }
 
   const switchTheme = () => {
