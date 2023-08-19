@@ -30,6 +30,9 @@ ul {
   justify-content: center;
   gap: 1.25rem;
   list-style-type: none;
+  width: 70vw;
+  margin: 0 auto;
+  padding: 0 1.25rem;
 }
 
 li {
@@ -136,4 +139,13 @@ li {
 
 .btn-switch-theme {
   cursor: pointer;
+}
+
+.site-navigation-list {
+  justify-content: space-between;
+}
+
+.site-navigation-list div {
+  display: flex;
+  gap: 1rem;
 }

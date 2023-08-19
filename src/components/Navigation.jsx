@@ -23,12 +23,16 @@ const Navigation = () => {
             <li><Link to='/login'>Login</Link></li>
           </ul>
         ) : (
-          <ul>
-            <li><Link to='/'>{getTextLocale('Notes', 'Catatan')}</Link></li>
-            <li><Link to='/archives'>{getTextLocale('Archives', 'Arsip')}</Link></li>
-            <li><SwitchLocale /></li>
-            <li><SwitchTheme /></li>
-            <li onClick={onLogout}>{getTextLocale('Logout', 'Keluar')}</li>
+          <ul className='site-navigation-list'>
+            <div>
+              <li><Link to='/'>{getTextLocale('Notes', 'Catatan')}</Link></li>
+              <li><Link to='/archives'>{getTextLocale('Archives', 'Arsip')}</Link></li>
+            </div>
+            <div>
+              <li><SwitchLocale /></li>
+              <li><SwitchTheme /></li>
+              <li onClick={onLogout}>{getTextLocale('Logout', 'Keluar')}</li>
+            </div>
           </ul>
         )
       }
