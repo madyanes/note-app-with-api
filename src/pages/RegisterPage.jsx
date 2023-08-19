@@ -61,8 +61,8 @@ const RegisterPage = () => {
             <form onSubmit={onRegisterHandler}>
               <input type="text" placeholder="Name" value={userName} onChange={onUserNameChangeHandler} />
               <input type="text" placeholder="Email" value={userEmail} onChange={onUserEmailChangeHandler} />
-              <input type="text" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
-              <input type="text" placeholder="Confirm Password" value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
+              <input type="password" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
+              <input type="password" placeholder="Confirm Password" value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
               <div className="auth-buttons">
                 <button className="register">{getTextLocale('Register', 'Daftar')}</button>
                 <p className="login">
