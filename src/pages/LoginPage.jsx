@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
 import { login } from "../utils/network-data"
 import AuthUserContext from "../contexts/AuthUserContext"
+import LocaleContext from "../contexts/LocaleContext"
 
 const LoginPage = ({ loginSuccess }) => {
   const navigate = useNavigate()
   const { user } = useContext(AuthUserContext)
+  const { getTextLocale } = useContext(LocaleContext)
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
 
@@ -41,17 +43,17 @@ const LoginPage = ({ loginSuccess }) => {
     <>
       {
         user !== null ? (
-          <h1>You&apos;ve been logged in. Redirecting to homepage.</h1>
+          <h1>{getTextLocale('You&apos;ve been logged in. Redirecting to homepage.', 'Kamu telah login. Mengarahkan ke laman utama.')}</h1>
         ) : (
           <article className="auth-form">
-            <h1>Login Form</h1>
+            <h1>{getTextLocale('Login to use the app!', 'Silakan login untuk menggunakan aplikasi!')}</h1>
             <form onSubmit={onSubmitHandler}>
               <input type="text" placeholder="Email" value={userEmail} onChange={onUserEmailChangeHandler} />
               <input type="text" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
               <div className="auth-buttons">
-                <button className="register">Login</button>
+                <button className="register">{getTextLocale('Login', 'Masuk')}</button>
                 <p className="login">
-                  <Link to='/register'>Don&apos;t have an account? Register here</Link>
+                  <Link to='/register'>{getTextLocale('Don&apos;t have an account? Register here', 'Belum punya akun? Daftar di sini.')}</Link>
                 </p>
               </div>
             </form>

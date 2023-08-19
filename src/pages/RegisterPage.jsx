@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { register } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
+import LocaleContext from '../contexts/LocaleContext'
 
 const RegisterPage = () => {
   const [userName, setUserName] = React.useState('')
@@ -9,6 +10,7 @@ const RegisterPage = () => {
   const [userPassword, setUserPassword] = React.useState('')
   const [userConfirmPassword, setUserConfirmPassword] = React.useState('')
   const user = React.useContext(AuthUserContext)
+  const { getTextLocale } = React.useContext(LocaleContext)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -52,19 +54,19 @@ const RegisterPage = () => {
     <>
       {
         user === null ? (
-          <h1>You&apos;ve been logged in. Redirecting to homepage.</h1>
+          <h1>{getTextLocale('You&apos;ve been logged in. Redirecting to homepage.', 'Kamu telah login. Mengarahkan ke laman utama.')}</h1>
         ) : (
           <article className="auth-form">
-            <h1>Registration Form</h1>
+            <h1>{getTextLocale('Registration Form', 'Formulir Pendaftaran')}</h1>
             <form onSubmit={onRegisterHandler}>
               <input type="text" placeholder="Name" value={userName} onChange={onUserNameChangeHandler} />
               <input type="text" placeholder="Email" value={userEmail} onChange={onUserEmailChangeHandler} />
               <input type="text" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
               <input type="text" placeholder="Confirm Password" value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
               <div className="auth-buttons">
-                <button className="register">Register</button>
+                <button className="register">{getTextLocale('Register', 'Daftar')}</button>
                 <p className="login">
-                  <Link to='/login'>Already have an account? Login here</Link>
+                  <Link to='/login'>{getTextLocale('Already have an account? Login here', 'Punya akun? Login di sini.')}</Link>
                 </p>
               </div>
             </form>
