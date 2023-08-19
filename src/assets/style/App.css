@@ -109,7 +109,7 @@ li {
   font-size: small;
 }
 
-.note-detail > .note-item {
+.note-detail>.note-item {
   border: none;
 }
 
@@ -127,4 +127,13 @@ li {
   width: 100%;
   font-size: 1.25rem;
   padding: 1rem;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.btn-switch-theme {
+  cursor: pointer;
 }

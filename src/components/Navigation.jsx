@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { putAccessToken } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
+import SwitchTheme from './SwitchTheme'
 
 const Navigation = () => {
   const { user, resetUser } = useContext(AuthUserContext)
@@ -10,7 +11,6 @@ const Navigation = () => {
     resetUser()
     putAccessToken('')
   }
-
   return (
     <nav className="site-navigation">
       {
@@ -23,6 +23,7 @@ const Navigation = () => {
           <ul>
             <li><Link to='/'>Notes</Link></li>
             <li><Link to='/archives'>Archives</Link></li>
+            <li><SwitchTheme /></li>
             <li onClick={onLogout}>Logout</li>
           </ul>
         )
