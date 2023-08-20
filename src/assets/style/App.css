@@ -167,3 +167,20 @@ li {
 .btn-icons {
   cursor: pointer;
 }
+
+.input-new-note-title {
+  width: 100%;
+  border: none;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  background-color: inherit;
+}
+
+.input-new-note-body {
+  font-size: 1.5rem;
+}
+
+.input-new-note-body:empty::before {
+  color: #6d6d6d;
+  content: attr(data-placeholder);
+}
