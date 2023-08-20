@@ -1,5 +1,6 @@
 import { Link, useLocation, matchPath } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import parser from 'html-react-parser'
 import showFormattedDate from '../utils/date-conversion'
 import ActionButtons from './ActionButtons'
 
@@ -23,7 +24,7 @@ const NoteItem = ({ note }) => {
         <p>{showFormattedDate(note.createdAt)}</p>
       </footer>
       <div className="body">
-        <p>{note.body}</p>
+        {parser(note.body)}
       </div>
     </article>
   )
