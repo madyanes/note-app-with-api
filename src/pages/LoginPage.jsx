@@ -46,7 +46,7 @@ const LoginPage = ({ loginSuccess }) => {
               <div className="auth-buttons">
                 <button className="register">{getTextLocale('Login', 'Masuk')}</button>
                 <p className="login">
-                  <Link to='/register'>{getTextLocale('Don&apos;t have an account? Register here', 'Belum punya akun? Daftar di sini.')}</Link>
+                  <Link to='/register'>{getTextLocale('Don\'t have an account? Register here', 'Belum punya akun? Daftar di sini.')}</Link>
                 </p>
               </div>
             </form>
