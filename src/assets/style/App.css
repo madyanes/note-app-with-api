@@ -175,6 +175,8 @@ li {
   font-size: 2rem;
   margin-bottom: 10px;
   background-color: inherit;
+  color: inherit;
+  caret-color: #6d6d6d;
 }
 
 .input-new-note-body {
