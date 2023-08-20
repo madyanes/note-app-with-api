@@ -61,10 +61,10 @@ const RegisterPage = () => {
           <article className="auth-form">
             <h1>{getTextLocale('Registration Form', 'Formulir Pendaftaran')}</h1>
             <form onSubmit={onRegisterHandler}>
-              <input type="text" placeholder="Name" value={userName} onChange={onUserNameChangeHandler} />
-              <input type="text" placeholder="Email" value={userEmail} onChange={onUserEmailChangeHandler} />
-              <input type="password" placeholder="Password" value={userPassword} onChange={onUserPasswordChangeHandler} />
-              <input type="password" placeholder="Confirm Password" id='password-confirmation' value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
+              <input type="text" placeholder={getTextLocale("Name", 'Nama')} value={userName} onChange={onUserNameChangeHandler} />
+              <input type="text" placeholder={getTextLocale("Email", 'Surel')} value={userEmail} onChange={onUserEmailChangeHandler} />
+              <input type="password" placeholder={getTextLocale("Password", 'Kata kunci')} value={userPassword} onChange={onUserPasswordChangeHandler} />
+              <input type="password" placeholder={getTextLocale("Confirm Password", 'Konfirmasi kata kunci')} id='password-confirmation' value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
               <div className="auth-buttons">
                 <button className="register">{getTextLocale('Register', 'Daftar')}</button>
                 <p className="login">
