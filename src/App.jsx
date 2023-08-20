@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Navigation from './components/Navigation'
 import DetailPage from './pages/DetailPage'
+import NewNote from './pages/NewNote'
 import './assets/style/App.css'
 
 const App = () => {
@@ -100,6 +101,7 @@ const App = () => {
               <main>
                 <Routes>
                   <Route path='/' element={<HomePage />} />
+                  <Route path='/new' element={<NewNote />} />
                   <Route path='/archives' element={<HomePage archived />} />
                   <Route path='/notes/:id' element={<DetailPage />} />
                   <Route path='/register' element={<RegisterPage />} />

@@ -149,3 +149,10 @@ li {
   display: flex;
   gap: 1rem;
 }
+
+.fixed-button {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 3.125rem;
+  font-size: 3rem;
+}

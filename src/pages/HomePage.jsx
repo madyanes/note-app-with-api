@@ -1,5 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from "react"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams, Link } from "react-router-dom"
+import { BsPlusCircleFill } from 'react-icons/bs'
 import PropTypes from "prop-types"
 import Notes from "../components/Notes"
 import SearchBar from "../components/SearchBar"
@@ -48,6 +49,9 @@ const HomePage = ({ archived }) => {
             </section>
           )
         }
+        <Link to='/new'>
+          <BsPlusCircleFill className="fixed-button" />
+        </Link>
       </SearchContext.Provider>
     </>
   )
