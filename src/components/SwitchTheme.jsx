@@ -6,7 +6,7 @@ const SwitchTheme = () => {
   const { theme, switchTheme } = useContext(ThemeContext)
 
   return (
-    <div className='btn-switch-theme' onClick={switchTheme}>{theme === 'light' ? <RiMoonFill /> : <RiSunFill />}</div>
+    <div onClick={switchTheme}>{theme === 'light' ? <RiMoonFill className='btn-icons' /> : <RiSunFill className='btn-icons' />}</div>
   )
 }
 

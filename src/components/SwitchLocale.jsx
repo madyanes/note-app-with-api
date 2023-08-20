@@ -7,7 +7,7 @@ const SwitchLocale = () => {
 
   return (
     <div onClick={switchLocale}>
-      <SiGoogletranslate />
+      <SiGoogletranslate className='btn-icons' />
     </div>
   )
 }

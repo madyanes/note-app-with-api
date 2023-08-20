@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ImExit } from 'react-icons/im'
 import { putAccessToken } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import LocaleContext from '../contexts/LocaleContext'
@@ -35,9 +36,9 @@ const Navigation = () => {
               <li><Link to='/archives'>{getTextLocale('Archives', 'Arsip')}</Link></li>
             </div>
             <div>
-              <li><SwitchLocale /></li>
-              <li><SwitchTheme /></li>
-              <li onClick={onLogout}>{getTextLocale('Logout', 'Keluar')}</li>
+              <li><SwitchLocale className='btn-icons' /></li>
+              <li><SwitchTheme className='btn-icons' /></li>
+              <li className='btn-icons' onClick={onLogout}><ImExit />{user.name}</li>
             </div>
           </ul>
         )

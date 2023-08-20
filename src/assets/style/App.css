@@ -144,10 +144,6 @@ li {
   color: white;
 }
 
-.btn-switch-theme {
-  cursor: pointer;
-}
-
 .site-navigation-list {
   justify-content: space-between;
 }
@@ -166,4 +162,8 @@ li {
   bottom: 2.5rem;
   right: 3.125rem;
   font-size: 3rem;
+}
+
+.btn-icons {
+  cursor: pointer;
 }
