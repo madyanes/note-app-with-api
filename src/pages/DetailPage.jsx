@@ -9,6 +9,7 @@ import NoteItem from '../components/NoteItem'
 const DetailPage = () => {
   const { id } = useParams()
   const [note, setNote] = useState(null)
+  const [error, setError] = useState(null)
   const { user } = useContext(AuthUserContext)
   const { getTextLocale } = useContext(LocaleContext)
 
@@ -16,8 +17,11 @@ const DetailPage = () => {
     const fetchNote = async () => {
       const { error, data } = await getNote(id)
 
+      console.log('error', error)
+      console.log('data', data)
+
       if (error) {
-        return <NotFound />
+        setError(error)
       }
 
       setNote(() => data)
@@ -28,14 +32,16 @@ const DetailPage = () => {
 
   return (
     user === null ? (
-      <h1>{getTextLocale('Not Found', 'Tidak Ditemukan')}</h1>
+      <h1>{getTextLocale('You must login first to see this page.', 'Kamu harus login terlebih dulu untuk melihat laman ini.')}</h1>
     ) : (
       <div className="note-detail">
         {
-          note ? (
-            <NoteItem note={note} />
-          ) : (
-            <p>{getTextLocale('Loading...', 'Memuat...')}</p>
+          error ? <NotFound /> : (
+            note ? (
+              <NoteItem note={note} />
+            ) : (
+              <p>{getTextLocale('Loading...', 'Memuat...')}</p>
+            )
           )
         }
       </div>
