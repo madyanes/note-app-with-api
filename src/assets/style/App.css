@@ -155,7 +155,7 @@ li {
 .site-navigation-list>div {
   display: flex;
   gap: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 25px;
   padding: 10px 20px;
   font-weight: bolder;
