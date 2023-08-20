@@ -89,6 +89,9 @@ li {
 
 .register {
   padding: 1rem 1.25rem;
+  background-color: #333333;
+  color: white;
+  border: 1px solid #6d6d6d;
 }
 
 .login {
