@@ -1,7 +1,8 @@
-import { useState, useContext, useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
 import { login } from "../utils/network-data"
+import useInput from "../hooks/useInput"
 import AuthUserContext from "../contexts/AuthUserContext"
 import LocaleContext from "../contexts/LocaleContext"
 
@@ -9,8 +10,8 @@ const LoginPage = ({ loginSuccess }) => {
   const navigate = useNavigate()
   const { user } = useContext(AuthUserContext)
   const { getTextLocale } = useContext(LocaleContext)
-  const [userEmail, setUserEmail] = useState('')
-  const [userPassword, setUserPassword] = useState('')
+  const [userEmail, onUserEmailChangeHandler] = useInput('')
+  const [userPassword, onUserPasswordChangeHandler] = useInput('')
 
   useEffect(() => {
     if (user !== null) {
@@ -29,14 +30,6 @@ const LoginPage = ({ loginSuccess }) => {
     if (!error) {
       loginSuccess(data)
     }
-  }
-
-  const onUserEmailChangeHandler = (event) => {
-    setUserEmail(() => event.target.value)
-  }
-
-  const onUserPasswordChangeHandler = (event) => {
-    setUserPassword(() => event.target.value)
   }
 
   return (

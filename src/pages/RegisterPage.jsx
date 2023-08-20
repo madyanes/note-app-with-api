@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import useInput from '../hooks/useInput'
 import { register } from '../utils/network-data'
 import AuthUserContext from '../contexts/AuthUserContext'
 import LocaleContext from '../contexts/LocaleContext'
 
 const RegisterPage = () => {
-  const [userName, setUserName] = React.useState('')
-  const [userEmail, setUserEmail] = React.useState('')
-  const [userPassword, setUserPassword] = React.useState('')
-  const [userConfirmPassword, setUserConfirmPassword] = React.useState('')
+  const [userName, onUserNameChangeHandler] = useInput('')
+  const [userEmail, onUserEmailChangeHandler] = useInput('')
+  const [userPassword, onUserPasswordChangeHandler] = useInput('')
+  const [userConfirmPassword, onUserConfirmPasswordHandler] = useInput('')
   const user = React.useContext(AuthUserContext)
   const { getTextLocale } = React.useContext(LocaleContext)
   const navigate = useNavigate()
@@ -33,22 +34,6 @@ const RegisterPage = () => {
     if (!error) {
       navigate('/login')
     }
-  }
-
-  const onUserNameChangeHandler = (event) => {
-    setUserName(() => event.target.value)
-  }
-
-  const onUserEmailChangeHandler = (event) => {
-    setUserEmail(() => event.target.value)
-  }
-
-  const onUserPasswordChangeHandler = (event) => {
-    setUserPassword(() => event.target.value)
-  }
-
-  const onUserConfirmPasswordHandler = (event) => {
-    setUserConfirmPassword(() => event.target.value)
   }
 
   return (
