@@ -49,7 +49,7 @@ const LoginPage = ({ loginSuccess }) => {
             <h1>{getTextLocale('Login to use the app!', 'Silakan login untuk menggunakan aplikasi!')}</h1>
             <form onSubmit={onSubmitHandler}>
               <input type="text" placeholder={getTextLocale("Email", 'Surel')} value={userEmail} onChange={onUserEmailChangeHandler} />
-              <input type="password" placeholder={getTextLocale("Password", 'Kata kunci')} value={userPassword} onChange={onUserPasswordChangeHandler} />
+              <input type="password" autoComplete="off" placeholder={getTextLocale("Password", 'Kata kunci')} value={userPassword} onChange={onUserPasswordChangeHandler} />
               <div className="auth-buttons">
                 <button className="register">{getTextLocale('Login', 'Masuk')}</button>
                 <p className="login">
