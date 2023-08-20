@@ -136,6 +136,8 @@ li {
   width: 100%;
   font-size: 1.25rem;
   padding: 1rem;
+  background-color: inherit;
+  caret-color: #6d6d6d;
 }
 
 [data-theme='dark'] {
