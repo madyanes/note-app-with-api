@@ -47,8 +47,8 @@ const RegisterPage = () => {
             <form onSubmit={onRegisterHandler}>
               <input type="text" placeholder={getTextLocale("Name", 'Nama')} value={userName} onChange={onUserNameChangeHandler} />
               <input type="text" placeholder={getTextLocale("Email", 'Surel')} value={userEmail} onChange={onUserEmailChangeHandler} />
-              <input type="password" placeholder={getTextLocale("Password", 'Kata kunci')} value={userPassword} onChange={onUserPasswordChangeHandler} />
-              <input type="password" placeholder={getTextLocale("Confirm Password", 'Konfirmasi kata kunci')} id='password-confirmation' value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
+              <input type="password" autoComplete='off' placeholder={getTextLocale("Password", 'Kata kunci')} value={userPassword} onChange={onUserPasswordChangeHandler} />
+              <input type="password" autoComplete='off' placeholder={getTextLocale("Confirm Password", 'Konfirmasi kata kunci')} id='password-confirmation' value={userConfirmPassword} onChange={onUserConfirmPasswordHandler} />
               <div className="auth-buttons">
                 <button className="register">{getTextLocale('Register', 'Daftar')}</button>
                 <p className="login">
