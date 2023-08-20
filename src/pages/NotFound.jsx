@@ -5,7 +5,7 @@ const NotFound = () => {
   const { getTextLocale } = useContext(LocaleContext)
 
   return (
-    <h1>{getTextLocale('Page Not Found', 'Laman Tidak Ditemukan')}</h1>
+    <p>{getTextLocale('Page Not Found', 'Laman Tidak Ditemukan')}</p>
   )
 }
 

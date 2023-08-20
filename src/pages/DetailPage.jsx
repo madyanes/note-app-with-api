@@ -32,7 +32,7 @@ const DetailPage = () => {
 
   return (
     user === null ? (
-      <h1>{getTextLocale('You must login first to see this page.', 'Kamu harus login terlebih dulu untuk melihat laman ini.')}</h1>
+      <p>{getTextLocale('You must login first to see this page.', 'Kamu harus login terlebih dulu untuk melihat laman ini.')}</p>
     ) : (
       <div className="note-detail">
         {
