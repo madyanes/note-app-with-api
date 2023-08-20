@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage'
 import Navigation from './components/Navigation'
 import DetailPage from './pages/DetailPage'
 import NewNote from './pages/NewNote'
+import NotFound from './pages/NotFound'
 import './assets/style/App.css'
 
 const App = () => {
@@ -106,6 +107,7 @@ const App = () => {
                   <Route path='/notes/:id' element={<DetailPage />} />
                   <Route path='/register' element={<RegisterPage />} />
                   <Route path='/login' element={<LoginPage loginSuccess={onLoginSuccess} />} />
+                  <Route path='/*' element={<NotFound />} />
                 </Routes>
               </main>
             </ThemeContext.Provider>
