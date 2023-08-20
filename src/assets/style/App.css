@@ -125,8 +125,7 @@ li {
 
 .action-buttons {
   display: flex;
-  gap: 0.313rem;
-  margin-bottom: 0.625rem;
+  gap: 1.25rem;
 }
 
 .search-bar {

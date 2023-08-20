@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { RiInboxUnarchiveFill, RiInboxArchiveFill, RiDeleteBin2Fill } from 'react-icons/ri'
 import { deleteNote } from "../utils/network-data"
 import ArchiveContext from '../contexts/ArchiveContext'
 
@@ -21,9 +22,9 @@ const ActionButtons = ({ note }) => {
   }
 
   return (
-    <div className="action-buttons">
-      <button onClick={onDeleteHandler}>Delete</button>
-      <button onClick={onArchiveNoteHandler}>{note.archived ? 'Unarchive' : 'Archive'}</button>
+    <div className="action-buttons fixed-button">
+      <div onClick={onDeleteHandler}><RiDeleteBin2Fill /></div>
+      <div onClick={onArchiveNoteHandler}>{note.archived ? <RiInboxUnarchiveFill /> : <RiInboxArchiveFill />}</div>
     </div>
   )
 }
