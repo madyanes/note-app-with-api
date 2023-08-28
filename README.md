@@ -1,8 +1,12 @@
-# React + Vite
+# React Note App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An application for managing notes using ReactJS.
 
-Currently, two official plugins are available:
+I built this app to get a [certificate of expertise from Dicoding](https://www.dicoding.com/certificates/4EXGN03VQZRL). \
+You can try out the live demo [here](https://note-app-with-api.vercel.app/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+You can perform CRUD processes like any other application, but you need to create an account first before you can use it.
+
+**You can register using random data**, because the backend does not require an email validation process.
