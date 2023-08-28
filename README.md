@@ -10,3 +10,7 @@ You can try out the live demo [here](https://note-app-with-api.vercel.app/).
 You can perform CRUD processes like any other application, but you need to create an account first before you can use it.
 
 **You can register using random data**, because the backend does not require an email validation process.
+
+## API
+
+The API used: [Dicoding Notes API v1](https://notes-api.dicoding.dev/v1#/)
